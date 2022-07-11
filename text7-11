@@ -1,0 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+int main() {
+	char  arr = 0;
+	char arr1 = 'w';
+	int ch = 1;
+	int tw = 116;
+	int cr = 1;
+	printf("请输入你的密码");
+	arr = getchar();
+	putchar(arr);
+	printf("你输入的是%d", arr);
+	printf("请确认你的输入情况  取消0确认1");
+	ch = scanf("%d",&cr);
+	if (ch == cr) {
+		{printf("\n确认成功");
+		if (arr == arr1)
+		{
+			printf("\n欢迎回来，@霜月");
+		}
+		else { printf("请确认密码是否正确后重新输入"); }
+		}
+	}else printf("取消输入");
+	return 0;
+}
