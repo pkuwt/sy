@@ -1,0 +1,55 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include <string.h>
+int main() {
+
+	int i = 1;
+	int mm = 123456;
+	int sr = 0;
+	int n = 0;
+	char t[5]="0";
+	int w = 0;
+	int j = 1;
+	int ys = 0;
+	int o = 3;
+	for (i = 1; i <= 3; i++) {
+	printf("请输入你的密码,你还可以输入%d次\n",o);
+	scanf("%d", &sr);
+		if (sr == mm) {
+			printf("密码正确欢迎回来\n");
+			break;
+		}
+		else {
+			printf("密码错误,请确认后重新输入\n");
+			w++;
+			o--;
+			if (w ==3) {
+				printf("输入次数已经上限,已经锁定账户");
+				for (;;);
+			}
+			continue;
+		}
+	}
+		printf("你已经成功进入操作页面");
+		int st[80] = { 25,12,13 };
+
+
+		for (j = 1; j <= 3; j++) {
+			printf("请输入你需要访问的数据库");
+			scanf("%d", &n);
+			int ch = 0;
+			while ((ch = getchar())!=10 ){
+				;
+			}
+			printf("数据如下%d\n", st[n]);
+			printf("是否继续访问 2继续 3退出");
+			scanf("%d", &ys);
+			if (ys==3) {
+				break;
+			}else 
+			{ continue; }
+		}
+		printf("访问结束,欢迎下次访问");
+	
+	return 0;
+}
