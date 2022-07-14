@@ -1,0 +1,22 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include <string.h>
+#include<windows.h>
+int main() {
+	char arr[8] = { "123456" };
+	for (int i = 1; i <= 3; i++) {
+		printf("请输入你的密码\n");
+		char arr1[8] = { 0 };
+		scanf("%s", arr1);
+		if (strcmp(arr1, arr)==0 ) {
+			printf("密码正确\n");
+			break;
+		}
+		else {
+			int m = 3 - i;
+			printf("密码错误,请确认后重新输入,还可以输入%d次\n",m );
+		}
+
+	}
+	return 0;
+}
