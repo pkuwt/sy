@@ -1,6 +1,6 @@
 # sy
 学习C语言
 #define <stadio.h>
-int msin (){
-printf("打卡第二天");
+int main (){
+printf("新人学习,请多多关注!");
 }
