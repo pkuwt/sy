@@ -1,0 +1,14 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+void  in(int* x){
+	int tem = *x;
+	*x = tem + 1;
+}
+int main() {
+	int a = 10;
+	in(&a);
+	printf("%d", a);
+	return 0;
+}
