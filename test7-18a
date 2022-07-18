@@ -1,0 +1,16 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+void  print(int m) {
+	if (m > 9) {
+		print(m / 10);
+	}
+	printf("%d  ", m % 10);
+}
+int main() {
+	int a = 0;
+	scanf("%d", &a);
+	print(a);
+	return (0);
+}
