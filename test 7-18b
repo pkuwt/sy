@@ -1,0 +1,34 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+int fid(int t) {
+	if (t <= 2) {
+		return 1;
+}else
+	{
+		return fid(t - 1) + fid(t - 2);
+	}
+}
+
+int fid1(int k) {
+	int a = 1;
+	int b = 1;
+	int c = 1;
+	while (k > 2)
+	{
+		c = a + b;
+		a = b;
+		b = c;
+		k--;
+	}
+	return c;
+}
+int main() {
+	int i = 0;
+	int s = 0;
+	scanf("%d", &s);
+	int m=fid1(s);
+	printf("%d", m);
+
+}
