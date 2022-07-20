@@ -104,7 +104,6 @@ char win(char arr[row][del], int r, int d) {
 
 	int ret=full(arr, row, del);
 	if (ret == 1) {
-		printf("返回C");
 		return 'C';
 	}
 	else {
