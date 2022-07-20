@@ -25,7 +25,6 @@ void sz() {
 		dyqpan(arr, row, del);
 		w=win(arr, row, del);
 		if (w != 'C') {
-			printf("继续\n");
 			break;
 		}
 	}
