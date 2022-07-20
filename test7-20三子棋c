@@ -1,0 +1,65 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include"szq.h"
+void menu() {
+	printf("********三子棋*******\n");
+	printf("****1开始   0退出****\n");
+	printf("*********************\n");
+}
+void sz() {
+	char arr[row][del];
+	csh(arr, row, del);
+//打印棋盘
+	dyqpan(arr,row,del);
+	char w=0;
+	while (1) {
+		wj(arr, row, del);
+		dyqpan(arr, row, del);
+		w=win(arr, row, del);
+		if (w != 'C') {
+			printf("继续\n");
+			printf("%c\n", w);
+			break;
+		}
+
+		dn(arr, row, del);
+		dyqpan(arr, row, del);
+		w=win(arr, row, del);
+		if (w != 'C') {
+			printf("继续\n");
+			break;
+		}
+	}
+
+	if (w == '*') {
+		printf("恭喜玩家赢了\n");
+	}else if (w == '#') {
+		printf("电脑赢了\n");
+	}
+	else {
+		printf("平局\n");
+	}
+}
+int main() {
+
+	srand((unsigned int)time(NULL));
+	int input = 0;
+	do {
+		menu();
+		printf("请选择");
+		scanf("%d", &input);
+		switch (input) {
+		case 1:
+			printf("开始游戏\n");
+			sz();
+			break;
+		case 0:
+			printf("退出游戏");
+			break ;
+		default:
+			printf("输入错误,请重新输入");
+			break;
+		}
+
+	} while (input);
+	return 0;
+}
