@@ -1,0 +1,14 @@
+#pragma once
+#define row 3
+#define del 3
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+void sz();
+void dyqpan(char arr[row][del],int r,int d);
+void csh(char arr[row][del], int r, int d);
+void wj(char arr[row][del], int x, int y);
+void dn(char arr[row][del], int x, int y);
+char win(char arr[row][del], int r,int d);
+int full(char arr[row][del], int r, int d);
