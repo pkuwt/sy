@@ -1,0 +1,47 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include"sl.h"
+void menu() {
+	printf("#######扫 雷######\n");
+	printf("#### 1开始游戏####\n");
+	printf("#### 2退出游戏####\n");
+	printf("##################\n");
+}
+
+void game() {
+	char lei[rows][dels] = {0};
+	char cha[rows][dels] = {0};
+
+	csh(lei, rows, dels,'0');
+	csh(cha, rows, dels, '*');
+
+	scl(lei, row, del);//生成雷
+
+	display(lei, row, del);
+	display(cha, row, del);
+	
+	zhao(lei, cha, row, del);
+
+}
+
+int main() {
+	srand((unsigned int)time(NULL));
+	int input = 0;
+	do {
+		menu();
+		printf("请选择");
+		scanf("%d", &input);
+		switch (input) {
+		case 1:
+			game();
+			break ;
+		case 0:
+			printf("退出游戏\n");
+			break ;
+		default:
+			printf("输入错误,请确认后重新输入\n");
+			break ;
+		}
+
+	} while (input );
+	return 0;
+}
