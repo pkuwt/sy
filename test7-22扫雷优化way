@@ -1,0 +1,118 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include "sl.h"
+
+void csh(char arr[rows][dels], int x, int y, char set) {
+	for (int i = 0; i < rows;i++) {
+		for (int j = 0; j < dels; j++) {
+			arr[i][j] = set;
+		}
+	}
+}
+
+void display(char arr[rows][dels], int x, int y) {
+	printf("------扫雷-------\n");
+	printf("0 1 2 3 4 5 6 7 8 9\n");
+	for (int i = 1; i <=x; i++) {
+		printf("%d", i);
+		for (int j = 1; j <=y; j++) {
+			printf(" ");
+			printf("%c", arr[i][j]);
+		}
+		printf("\n");
+	}
+	printf("------扫雷-------\n");
+}
+
+void scl(char arr[rows][dels], int r, int d) {
+	int t = nums;
+	while (t) {
+
+		while (1) {
+			int i = rand() % r + 1;
+			int j = rand() % d + 1;
+			if (arr[i][j] == '0') {
+				arr[i][j] = '1';
+				break;
+			}
+		}
+		t--;
+	}
+}
+
+int play(char arr[rows][dels],int x,int y) {
+	return arr[x-1][y-1] + arr[x-1][y] + arr[x-1][y+1] +
+		   arr[x][y-1] + arr[x][y] + arr[x][y+1] +
+		   arr[x+1][y-1] + arr[x+1][y] + arr[x+1][y+1]-8*'0';
+}
+
+void yh(char a[rows][dels], char ar[rows][dels],int x,int y) {
+	if (x >= 1 && y >= 1 && x <= 9 && y <= 9) {
+
+		for (int q = -1; q < 2; q++) {
+			for (int w = -1; w < 2; w++) {
+				if ((w == 0 && q == 0)||ar[x+q][y+w]!='*') {
+					continue;
+				}
+				int ret = play(a, x + q, y + w);
+				if (ret =='0') {
+					ar[x + q][y + w] = ' ';
+					yh(a, ar, x + q, y + w);
+				}
+				else {
+					ar[x + q][y + w] = ret + '0' - '0';
+				}
+
+			}
+		}
+	}
+}
+
+
+void zhao(char arr[rows][dels],char arr1[rows][dels], int x, int y) {
+	int count=0;
+	while (x*y-nums-count) {
+		printf("请输入你要找的坐标");
+		int i = 0;
+		int j = 0;
+		scanf("%d%d", &i, &j);
+		if (i > 0 && i <= x && j > 0 && j <= y)
+		{
+			if (arr[i][j] == '1') {
+				printf("很遗憾,踩到雷了,游戏结束\n");
+				display(arr1, row, del);
+				break;
+			}
+			else if(arr1[i][j]!='*'){
+				printf("该处已经被排查过\n");
+				continue;
+			}else
+			{
+				char  m=play(arr,i,j)+'0'-'0';
+				arr1[i][j] = ' ';
+				display(arr1, row, del);
+				yh(arr,arr1,i,j);
+				display(arr1, row, del);
+			
+				int k = 0;
+				do {
+					printf("请选择是否进入标记模式及要标记的坐标\n1(1要标记0不标记) 2 3(要标记的坐标不想标记请随便输入一组坐标)\n");
+					int d = 0;
+					int z = 0;
+					scanf("%d %d %d", &k, &d, &z);
+					if (d<0 || d>row || z<0 || z>del) {
+						printf("坐标不合法");
+						continue;
+					}
+					arr1[d][z] = '?';
+					display(arr1, row, del);
+				} while (k);
+				count++;
+				continue;
+			}
+		}
+		else { printf("输入坐标不合法\n"); }
+	}
+	if (count == x * y - nums) {
+		printf("恭喜你顺利过关\n");
+	}
+}
