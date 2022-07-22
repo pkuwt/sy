@@ -4,7 +4,7 @@
 #define rows row+2
 #define dels del+2
 #define nums 10
-
+//可标记和动排除其他不可能的选项
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
