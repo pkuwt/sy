@@ -16,7 +16,7 @@ void game() {
 
 	scl(lei, row, del);//生成雷
 
-	display(lei, row, del);
+	//display(lei, row, del);
 	display(cha, row, del);
 	
 	zhao(lei, cha, row, del);
