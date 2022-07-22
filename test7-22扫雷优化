@@ -1,0 +1,18 @@
+#pragma once
+#define row 9
+#define del 9
+#define rows row+2
+#define dels del+2
+#define nums 10
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+void csh(char arr[rows][dels],int x,int y,char set);
+
+void display(char arr[rows][dels], int x, int y);
+
+void scl(char arr[rows][dels], int r, int d);
+
+void zhao(char arr[rows][dels],char char1[rows][dels], int x, int y);
