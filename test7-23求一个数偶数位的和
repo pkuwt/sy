@@ -1,0 +1,41 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+int main() {
+	int a = 0;
+	int sumj = 0;
+	int sumo = 0;
+	int tj = 1;
+	int count =1;
+	int i = 0;
+	scanf("%d", &a);
+
+	while (tj) {
+		if (a >= 10) {
+			i = a % 10;
+			if (count % 2 == 0) {
+				sumo = sumo + i;
+			}
+			else {
+				sumj = sumj + i;
+			}
+		a = a / 10;
+		count++;
+	     }
+		else{
+			if (count % 2 == 0) {
+				sumo = sumo + i;
+			}
+			else {
+				sumj = sumj + i;
+			}
+			tj = 0;
+		}
+	}
+	if (count % 2 == 0) {
+		printf("偶数位的和为=%d", sumj);
+	}
+	else {
+		printf("偶数位的和为=%d", sumo);
+	}
+	return 0;
+}
