@@ -1,0 +1,63 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+int main() {
+	srand((unsigned int)time(NULL));
+	int i = 0;
+	int t = 0;
+	int n = 0;
+	int w = 0;
+	int r = 0;
+	int x = 0;
+	int h = 0;
+	int l = 0;
+	int arr[10] = {8,2,151,5,3,25,64,516,225,454};
+	int tem[5] = { 0 };
+	n = sizeof(arr)/4;
+	t = n / 5;
+	for (w; w < t; w++) {
+		//随机把一个数组的5个数放到一个临时数组里面
+		int y = 0;
+		while (y < 5) {
+			r = rand() % n;
+			if (arr[r] == 0) {
+				continue;
+			}
+			else {
+				tem[y] = arr[r];
+				arr[r] = 0;
+			}
+			y++;
+		}
+		printf("第 %d 组调整前\n",w+1);
+		for (int k=0; k < 5; k++) {
+			printf("%d  ", tem[k]);
+		}
+		//找出临时数组的最大值和最小值的下标
+		for (x; x < 4; x++) {
+			if (tem[h] > tem[x + 1]) {
+			}
+			else {
+				h = x + 1;
+			}
+			if (tem[l] > tem[x + 1]) {
+				l = x + 1;
+			}
+			else {
+			}
+		}
+		//交换最大值和最小值
+		int d = 0;
+		d=tem[h];
+		tem[h] = tem[l];
+		tem[l] = d;
+
+		printf("\n调整后\n");
+		for (int k = 0; k <5; k++) {
+			printf("%d  ", tem[k]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
