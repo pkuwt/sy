@@ -1,0 +1,34 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include <string.h>
+void re(char *left,char*righ) {
+
+	while (left < righ) {
+		char a = 0;
+		a= *left;
+		*left= *righ;
+		*righ = a;
+		righ--;
+		left++;
+	}
+}
+int main()
+{
+	int i = 0;
+	char arr[100] = {0};
+
+	gets_s(arr,100);
+	i = strlen(arr)-1;
+	re(arr, arr+i);
+	char* st = arr;
+	while (*st) {
+		char* end = st;
+		while (*end==' ' && *st == '\0') {
+			end++;
+		}
+		re(st, end);
+		st = end + 1;
+	}
+	printf("%s", arr);
+	return 0;
+}
