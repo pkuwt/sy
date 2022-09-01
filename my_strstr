@@ -1,0 +1,35 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include <string.h>
+#include <assert.h>
+char* my_strstr( char*  ah,  char*  be) {
+	assert(ah && be);
+	char* a = ah;
+    char* b = be;
+
+	if (!*b) {
+		return b;
+	}
+	int ret = 1;
+	while (*a) {
+		char* c = a;
+		while(!(ret=(*c-*b)))
+		{
+			c++;
+			b++;
+		}
+		if (*b == 0) {
+			return  a;
+		}
+		a++;
+	}
+	return NULL;
+}
+int main() {
+	char arr[10] = "aabcdedd";
+	char arr1[5] = "dd";
+
+	printf("%s", my_strstr(arr, arr1));
+
+	return 0;
+}
