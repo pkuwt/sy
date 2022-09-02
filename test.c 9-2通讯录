@@ -1,0 +1,69 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include "txl.h"
+int com(void* a, void* b) {
+	return (((struct txl*)a)->sy->age) - (((struct txl*)b)->sy->age);
+	;
+}
+void menu() {
+	printf("********    通讯录   ********\n");
+	printf("*******1 查找 2 删除 ********\n");
+	printf("*******3 修改 4 添加 ********\n");
+	printf("*******5 排序 6 打印 ********\n");
+	printf("*******0 退出 ***************\n");
+}
+enum st{
+	tui,
+	cha,
+	shan,
+	xou,
+	tian,
+	pai,
+	day,
+};
+int main() {
+	int input = 0;
+	tx txl;
+	csh(&txl);
+	do {
+		menu();
+		char ca[mz] = { 0 };
+		scanf("%d", &input);
+		switch (input) {
+		case cha:
+			printf("请输入要查找的名字");
+			scanf("%s", ca);
+			cz(&txl,chazhao(&txl, ca));
+			break;
+		case shan:
+			printf("请输入要删除的名字");
+			scanf("%s", ca);
+			sc(&txl, chazhao(&txl, ca));
+			break;
+		case xou:
+			printf("请输入修改的名字");
+			scanf("%s", ca);
+			xgai(&txl, chazhao(&txl, ca));
+			break;
+		case tian:
+			tj(&txl);
+			break;
+		case pai:
+		
+			qsort(&txl,txl.rs, sizeof(txl.sy[0]),com);
+			break;
+		case day:
+			dayin(&txl);
+			break;
+		case tui:
+			printf("已经退出通讯录 ");
+			break;
+		default:
+			printf("输入错误，请重新输入。\n");
+			break;
+		}
+		//system("cls");
+
+	} while (input);
+
+	return 0;
+}
