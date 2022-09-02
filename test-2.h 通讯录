@@ -1,0 +1,27 @@
+#pragma once
+#include <stdio.h>
+#include <string.h>
+#include <windows.h>
+#define mz 20
+#define xb 5
+#define hm 12
+#define zz 30
+#define max 100
+struct peo {
+	char xm[mz];
+	int age;
+	char sex[xb ];
+	char tele[hm ];
+	char home[zz];
+};
+typedef struct txl {
+	struct peo sy[max];
+	int rs;
+}tx;
+void csh(struct txl* pc);
+void tj(struct txl* pc);
+int chazhao(struct txl*pc, char arr[]);
+void dayin(struct txl* pc);
+void cz(struct txl* pc,int i);
+void sc(struct txl* pc, int i);
+void xgai(struct txl* pc, int i);
