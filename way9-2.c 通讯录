@@ -1,0 +1,80 @@
+void tj(struct txl* pc) {
+	printf("请输入姓名:");
+	scanf("%s", pc->sy[pc->rs].xm);
+	printf("\n请输入年龄:");
+	scanf("%d", &(pc->sy[pc->rs].age));
+	printf("\n请输入性别:");
+	scanf("%s", pc->sy[pc->rs].sex);
+	printf("\n请输入号码:");
+	scanf("%s", pc->sy[pc->rs].tele);
+	printf("\n请输入地址:");
+	scanf("%s", pc->sy[pc->rs].home);
+	pc->rs++;
+	printf("添加成功\n");
+}
+
+int chazhao(struct txl* pc, char arr[]) {
+
+	for (int i = 0; i < pc->rs; i++) {
+		if (strcmp(arr, pc->sy[i].xm) == 0) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+void dayin(struct txl* pc) {
+	printf("%-5s\t%-3s\t%-5s\t%-15s\t%-20s\t\n", "姓名", "年龄", "性别", "号码", "住址");
+	for (int i = 0; i < pc->rs; i++) {
+		printf("%-5s\t%-3d\t%-5s\t%-15s\t%-20s\t\n",
+			pc->sy[i].xm,
+			pc->sy[i].age,
+			pc->sy[i].sex,
+			pc->sy[i].tele,
+			pc->sy[i].home);
+	}
+	printf("打印完成\n");
+}
+void cz(struct txl*pc,int i) {
+	if (i < 0) {
+		printf("没有找到所查找的信息\n");
+		return;
+	}
+	printf("%-5s\t%-3s\t%-5s\t%-15s\t%-20s\t\n", "姓名", "年龄", "性别", "号码", "住址");
+		printf("%-5s\t%-3d\t%-5s\t%-15s\t%-20s\t\n",
+			pc->sy[i].xm,
+			pc->sy[i].age,
+			pc->sy[i].sex,
+			pc->sy[i].tele,
+			pc->sy[i].home);
+		printf("已经打印完所查找的信息\n");
+}
+void sc(struct txl* pc, int i) {
+	if (i < 0) {
+		printf("没有找到要删除的联系人\n");
+		return;
+	}
+	for (int j = i; j < pc->rs-1; j++) {
+		pc->sy[j] = pc->sy[j + 1];
+	}
+	pc->rs--;
+	printf("已经删除该联系人");
+}
+
+void xgai(struct txl* pc, int i) {
+	if (i == 0) {
+		printf("没有找到要修改的联系人\n");
+		return;
+	}
+	printf("请输入姓名:");
+	scanf("%s", pc->sy[i].xm);
+	printf("请输入年龄:");
+	scanf("%d", &(pc->sy[i].age));
+	printf("请输入性别:");
+	scanf("%s", pc->sy[i].sex);
+	printf("请输入号码:");
+	scanf("%s", pc->sy[i].tele);
+	printf("请输入地址:");
+	scanf("%s", pc->sy[i].home);
+	printf("修改成功\n");
+}
